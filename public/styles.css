@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    margin-left: 10px;
+}
+
+.center-container a {
+    display: block;
+    width: 35vw;
+    height: 50vh;
+    margin: 10px;
+}
+
+.center-container a img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.center-container a:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.center-container a:not(:hover) {
+    transition: transform 0.5s ease-in-out;
+}
+
+.recipe-page {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea,
+input[type="number"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: -5px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#add-recipe {
+    font-size: 24px;
+    color: #333;
+    padding: 300px 100px;
+    margin: 10px;
+    background: url(addr.jpg) center/cover no-repeat;
+    border: none; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-ingredient {
+    margin-bottom: 20px;
+    margin-top: -5px;
+}
+
+button:hover {
+    background-color: #555;
+}
