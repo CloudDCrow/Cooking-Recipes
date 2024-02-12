@@ -4,7 +4,7 @@ function googleLogin() {
 
   firebase.auth().signInWithPopup(provider)
 
-    //After user logs in, they are send to the home page
+    // After user logs in, they are send to the home page
     .then(result => {
         const user = result.user;
         window.location.href = 'home.html';
@@ -14,7 +14,9 @@ function googleLogin() {
 }
 
 document.addEventListener("DOMContentLoaded", event => {
+  // Initializes Firebase app and firestore
   const app = firebase.app();
+  let db = firebase.firestore();
 
   const submitButton = document.getElementById('submit-recipe');
   const ingredientsList = document.getElementById("ingredients-list");
@@ -23,7 +25,6 @@ document.addEventListener("DOMContentLoaded", event => {
   const urlParameters = new URLSearchParams(window.location.search);
   const recipeID = urlParameters.get('id');
 
-  let db = firebase.firestore();
 
   console.log(db);
   console.log(app);
@@ -37,6 +38,8 @@ document.addEventListener("DOMContentLoaded", event => {
     db.collection('recipes').get()
       .then(querySnapshot => {
         const recipeNames = [];
+
+        // Gets all recipes data
         querySnapshot.forEach(doc => {
           const recipeData = doc.data();
           console.log(doc.id, ' => ', recipeData);
@@ -46,6 +49,7 @@ document.addEventListener("DOMContentLoaded", event => {
           }
         });
 
+        // Creates hyprelinks for each recipe from the user
         recipeNames.forEach(recipe => {
           const recipeDiv = document.createElement('div');
           recipeDiv.innerHTML = `<a href="recipe.html?id=${recipe.id}">${recipe.name}</a>`;
@@ -73,12 +77,12 @@ document.addEventListener("DOMContentLoaded", event => {
       });
   }
 
+  // Displays recipes details on the page
   function displayRecipeDetails(recipeData) {
-    // Displays recipes details on the page
-    document.getElementById('viewing-recipe-name').textContent = `Name: ${recipeData.name}`;
-    document.getElementById('viewing-recipe-ingredients').textContent = `Ingredients: ${recipeData.ingredients.join(', ')}`;
-    document.getElementById('viewing-recipe-instructions').textContent = `Instructions: ${recipeData.instructions}`;
-    document.getElementById('viewing-recipe-time').textContent = `Time: ${recipeData.cookingTime} minutes`;
+    document.getElementById('viewing-recipe-name').innerHTML = `<b>Name:</b> <br>${recipeData.name}`;
+    document.getElementById('viewing-recipe-ingredients').innerHTML = `<br><b>Ingredients:</b> <br>${recipeData.ingredients.join(', ')}`;
+    document.getElementById('viewing-recipe-instructions').innerHTML = `<br><b>Instructions:</b> <br>${recipeData.instructions}`;
+    document.getElementById('viewing-recipe-time').innerHTML = `<br><b>Time:</b> <br>${recipeData.cookingTime} minutes`;
   }
 
   // Adds the option to input more ingredients
@@ -91,6 +95,7 @@ document.addEventListener("DOMContentLoaded", event => {
       `;
       ingredientsList.appendChild(newIngredientInput);
   
+      // Adds the option to remove ingredients
       const removeIngredientButtons = document.querySelectorAll(".remove-ingredient");
       removeIngredientButtons.forEach((button) => {
         button.addEventListener("click", function () {
@@ -125,11 +130,6 @@ document.addEventListener("DOMContentLoaded", event => {
         .catch(function (error) {
           console.error('Error adding recipe: ', error);
         });
-    
-      console.log('Recipe Name:', recipeName);
-      console.log('Ingredients:', ingredients);
-      console.log('Instructions:', instructions);
-      console.log('Cooking Time:', cookingTime);
     });
   }
 });
