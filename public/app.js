@@ -115,21 +115,24 @@ document.addEventListener("DOMContentLoaded", event => {
       const instructions = document.getElementById('instructions').value;
       const cookingTime = document.getElementById('cooking-time').value;
     
-        // Creates a Firestore document with the input data
-        const recipeData = {
-        name: recipeName,
-        ingredients: ingredients,
-        instructions: instructions,
-        cookingTime: cookingTime,
-        };
-    
-        db.collection('recipes').add(recipeData)
-        .then(function (docRef) {
-          console.log('Recipe added with ID: ', docRef.id);
-        })
-        .catch(function (error) {
-          console.error('Error adding recipe: ', error);
-        });
+      // Creates a Firestore document with the input data
+      const recipeData = {
+      name: recipeName,
+      ingredients: ingredients,
+      instructions: instructions,
+      cookingTime: cookingTime,
+      };
+  
+      db.collection('recipes').add(recipeData)
+      .then(function (docRef) {
+        console.log('Recipe added with ID: ', docRef.id);
+        const messageElement = document.createElement('div');
+        messageElement.innerHTML = 'Recipe saved, <a href="view.html">click here</a> to view recipes';
+        document.body.appendChild(messageElement);
+      })
+      .catch(function (error) {
+        console.error('Error adding recipe: ', error);
+      });
     });
   }
 });
