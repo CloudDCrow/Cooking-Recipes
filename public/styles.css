@@ -6,17 +6,28 @@ body {
     padding: 0;
 }
 
+body a {
+    font-size:medium;
+    font-weight: bold;
+}
+
+body p {
+    margin-left: 30%;
+}
+
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
+    align-items: center;
     padding: 1rem 0;
 }
 
 header a {
     text-decoration: none;
+    text-align: center;
     color: white;
-    font-size: large;
+    font-size: x-large;
 }
 
 main {
@@ -189,4 +200,11 @@ button:hover {
     font-weight: bold;
     font-size: 24px;
     margin: 0 auto;
+}
+
+#logout-button {
+    display: flex;
+    margin-left: auto;
+    margin-top: 1vh;
+    margin-right: 3vw;
 }

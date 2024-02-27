@@ -13,6 +13,17 @@ function googleLogin() {
     .catch(console.log);
 }
 
+// Default function to log out a user
+function logout() {
+  firebase.auth().signOut()
+    .then(() => {
+      window.location.href = 'login.html';
+    })
+    .catch(error => {
+      console.error('Logout error:', error);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", event => {
   // Initializes Firebase app and firestore
   const app = firebase.app();
@@ -127,7 +138,7 @@ document.addEventListener("DOMContentLoaded", event => {
       .then(function (docRef) {
         console.log('Recipe added with ID: ', docRef.id);
         const messageElement = document.createElement('div');
-        messageElement.innerHTML = 'Recipe saved, <a href="view.html">click here</a> to view recipes';
+        messageElement.innerHTML = '<p>Recipe saved, <a href="view.html">click here</a> to view recipes</p>';
         document.body.appendChild(messageElement);
       })
       .catch(function (error) {
