@@ -2,7 +2,7 @@
 
 A web application for adding and viewing recipes. Ideal for beginner or home cooks looking to create a personalized online cookbook.
 
-## Link: https://cooking-recipes-website-32db2.web.app/
+## Link: (https://cooking-recipes-website-32db2.firebaseapp.com/)
 
 ## How to use
 
