@@ -1,0 +1,33 @@
+Test Cases:
+
+	Login page:
+	1. Login Button
+		Clicking on the login button should open up a new window, where a user
+		can log in via Google
+
+	Home page:
+	1. Home Button
+		Clicking on the header title should bring a user to the home screen
+	2. Add Recipe Button
+		Clicking on the add recipe button should bring users to a new window
+		where they can add information about the recipe
+	3. View Recipe Button
+		Clicking on the view recipe buttons should bring users to the page
+		where they can view their existing recipes
+	4. Logout Button
+		The logout button should log the user out and return them to the login page
+
+	Add recipe page:
+	1. Add Ingredient Button
+		Clicking on the add button should provide additional input fields for		
+		more ingredients
+	2. Remove Ingredient button
+		Clicking on the remove button should remove the additional ingredient fields
+	3. Submit Recipe Button
+		Clicking on the submit button should store the recipe in the database and
+		provide a link to view the recipe
+
+	View recipes page:
+	1. Recipe Name Button
+		Clicking on a specific recipe name should bring the user to the information
+		page, where all the information about that recipe is displayed
